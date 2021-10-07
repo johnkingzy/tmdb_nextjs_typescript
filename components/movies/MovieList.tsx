@@ -19,8 +19,6 @@ const MovieList = ({ movieData = [] }: MovieListProps): JSX.Element => {
    */
   useEffect(() => {
     const persistedState = localStorage.getItem("movieList");
-    console.log("persistedState", persistedState);
-
     if (persistedState) {
       const parsedState: number[] = JSON.parse(persistedState);
       if (parsedState && parsedState.length) {
