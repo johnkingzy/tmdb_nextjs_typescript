@@ -13,7 +13,7 @@ interface MovieListProps {
 const MovieList = ({ movieData = [] }: MovieListProps): JSX.Element => {
   const [selectedMoviesID, updateSelectedMovies] = useState<number[]>([]);
   const [movieList, updateMovieList] = useState<Movie[]>([]);
-  const [order, setOrder] = useState("asc");
+  const [order, setOrder] = useState<string>("asc");
   /**
    * On page load, get the persisted state.
    */
@@ -52,7 +52,7 @@ const MovieList = ({ movieData = [] }: MovieListProps): JSX.Element => {
         movieId,
       ]);
     } else {
-      updateSelectedMovies(selectedMoviesID.slice(0, movieIndexId));
+      updateSelectedMovies(selectedMoviesID.filter((id) => id !== movieId));
     }
   };
 
